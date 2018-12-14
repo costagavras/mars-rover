@@ -3,8 +3,9 @@
 
 class Rover
 
+  attr_accessor :x_coord, :y_coord, :direction
   def initialize
-    
+
   end
 
 end
