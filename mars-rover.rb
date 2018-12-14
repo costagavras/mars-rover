@@ -4,11 +4,18 @@
 class Rover
 
   attr_accessor :x_coord, :y_coord, :direction
-  def initialize(x_coord, y_coord, direction)
 
+  def initialize(x_coord, y_coord, direction)
+    @x_coord = x_coord
+    @y_coord = y_coord
+    @direction = direction
   end
+
+  
 
 end
 
 rover = Rover.new(1,1,"E")
-puts rover.class
+puts rover.x_coord
+puts rover.y_coord
+puts rover.direction
