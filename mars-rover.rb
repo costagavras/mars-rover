@@ -13,52 +13,51 @@ class Rover
 
   def read_instruction(instructions)
     ar_instructions = []
-    ar_instruction = instructions.char.to_a
+    ar_instruction = instructions.chars.to_a
     ar_instruction.each do |cmd|
-      if cmd = "M"
+      if cmd == "M"
         move
-      elsif cmd = "R" || cmd = "L"
+      elsif cmd == "R" || cmd == "L"
         turn(cmd)
       end
     end
-    print rover
   end
 
   def move
-    case rover.direction
+    case @direction
     when "N"
-      rover.y_coord +=1
+      @y_coord +=1
     when "S"
-      rover.y_coord -=1
+      @y_coord -=1
     when "E"
-      rover.x_coord +=1
+      @x_coord +=1
     when "W"
-      rover.x_coord -=1
+      @x_coord -=1
     end
   end
 
   def turn(cmd)
-    if cmd = "L"
-      case rover.direction
+    if cmd == "L"
+      case @direction
         when "N"
-          rover.direction = "W"
+          @direction = "W"
         when "S"
-          rover.direction = "E"
+          @direction = "E"
         when "E"
-          rover.direction = "N"
+          @direction = "N"
         when "W"
-          rover.direction = "S"
+          @direction = "S"
       end
-    elsif cmd = "R"
-        case rover.direction
+    elsif cmd == "R"
+        case @direction
         when "N"
-          rover.direction = "E"
+          @direction = "E"
         when "S"
-          rover.direction = "W"
+          @direction = "W"
         when "E"
-          rover.direction = "S"
+          @direction = "S"
         when "W"
-          rover.direction = "N"
+          @direction = "N"
         end
     end
   end
@@ -66,6 +65,12 @@ class Rover
 end
 
 rover = Rover.new(1,1,"E")
+puts "before new instructions"
+puts rover.x_coord
+puts rover.y_coord
+puts rover.direction
+rover.read_instruction("MLM")
+puts "after new instructions"
 puts rover.x_coord
 puts rover.y_coord
 puts rover.direction
