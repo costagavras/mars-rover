@@ -64,12 +64,12 @@ class Rover
 
 end
 
-rover = Rover.new(1,1,"E")
+rover = Rover.new(3,3,"E")
 puts "before new instructions"
 puts rover.x_coord
 puts rover.y_coord
 puts rover.direction
-rover.read_instruction("MLM")
+rover.read_instruction("MMRMMRMRRM")
 puts "after new instructions"
 puts rover.x_coord
 puts rover.y_coord
